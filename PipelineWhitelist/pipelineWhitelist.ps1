@@ -1,15 +1,10 @@
 ######################## Parameters to set ########################
 $workspaceName = "" #Enter your Synapse workspace here
 $SubscriptionId = "" #Enter your Azure SubscriptionId Here
-$uriBase = "" #Copy your synapse workspace Dev Endpoint here
 $allowedPipelinesTxt = ".\PipelineWhitelist\pipelineWhitelist.txt"
 
 ######################## Uri parameters - may need set over time if new endpoints are available. ########################
-#This endpoint is used to get the pipelines
-$uriEndPoint = "pipelines?api-version=2020-12-01preview"
-$uri = $uriBase+$uriEndPoint
-$uri = "https://@{$workspaceName}.dev.azuresynapse.net/pipelines?api-version=2020-12-01preview"
-
+$uri = "https://${workspaceName}.dev.azuresynapse.net/pipelines?api-version=2020-12-01preview"
 
 ######################## Connect to Azure ########################
 #used to check if you're already connected to Azure.
@@ -46,7 +41,6 @@ $pipelines = $response.value.Name
 ######################## Retrieve Whitelist from Text file ########################
 $allowedPipelines = Get-Content -Path $allowedPipelinesTxt
 
-
 ######################## Determine pipelines that need deleted ########################
 $pipelinesToDelete = @()
 
@@ -72,6 +66,6 @@ foreach($pipeline in $pipelines) {
 ######################## Delete pipelines not in whitelist ########################
 foreach($pipelineToDelete in $pipelinesToDelete)
 {
-    $deleteUri = "https://@{$workspaceName}.dev.azuresynapse.net/pipelines/${pipelineToDelete}?api-version=2020-12-01"
+    $deleteUri = "https://${workspaceName}.dev.azuresynapse.net/pipelines/${pipelineToDelete}?api-version=2020-12-01"
     Invoke-RestMethod -Method Delete -ContentType "application/json" -Uri $deleteUri -Headers $headers
 }
