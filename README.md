@@ -5,6 +5,6 @@ This is a small collection of PowerShell scripts that can be executed to perform
 
 ### PipelineWhitelist 
 
-This [script](./PipelineWhitelist/README.MD) is going to be useful for optionally deploying pipelines in an environment. This could be handy in a multi-tenancy Synapse environment where you may have committed pipelines that you do not want to promote to QA/Prod Environments. This could also serve as an Azure DevOps or GitHub Actions deployment artifact so that you could remove all pipelines that are not intended to go to promoted environments after they have been published.
+This [script](./PipelineWhitelist) is going to be useful for optionally deploying pipelines in an environment. This could be handy in a multi-tenancy Synapse environment where you may have committed pipelines that you do not want to promote to QA/Prod Environments. This could also serve as an Azure DevOps or GitHub Actions deployment artifact so that you could remove all pipelines that are not intended to go to promoted environments after they have been published.
 
 
