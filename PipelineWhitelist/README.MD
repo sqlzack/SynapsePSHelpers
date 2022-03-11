@@ -3,7 +3,6 @@
 ## Pre-Requisites
 - Azure Subscription ID
 - Synapse Workspace Name
-- Dev Endpoint URI for Synapse
 - Pipeline Whitelist Text File (There are likely other ways)
 - Powershell 7.2 and the Az Module Installed
 
